@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แพลตฟอร์มดิจิทัลเพื่อส่งเสริมการท่องเที่ยวภาคเหนือตอนล่างของไทย</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anakotmai:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Anakotmai', sans-serif;
+        }
+
+        body {
+            font-style: italic;
+        }
+
+        /* Navigation Bar */
+        .nav-container {
+            background-color: #5c7854;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.2em;
+            text-decoration: underline;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+
+        /* Hero Image Section */
+        .hero-image {
+            position: relative;
+            width: 100vw;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        /* Search Box */
+        .search-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            width: 700px;
+        }
+
+        .search-container input {
+            width: 85%;
+            padding: 18px;
+            font-size: 1.2em;
+            border-radius: 20px;
+            border: 2px solid #b6b6b6;
+            outline: none;
+        }
+
+        .search-container button {
+            padding: 18px 30px;
+            font-size: 1.2em;
+            border: none;
+            background-color: #e7d3c0;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-container button:hover {
+            background-color: #ffcc00;
+        }
+
+        /* Image Overlay */
+        .image-overlay {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .image-overlay .frame {
+            position: relative;
+            border: 5px solid white;
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 180px;
+            height: 220px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .image-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev { left: 5px; }
+        .next { right: 5px; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">แพลตฟอร์มดิจิทัลเพื่อส่งเสริมการท่องเที่ยวภาคเหนือตอนล่างของไทย</a>
+            <nav>
+                <ul>
+                    <li><a href="home.html">หน้าแรก</a></li>
+                    <li><a href="About.html">ข้อมูลจังหวัด</a></li>
+                    <li><a href="infor.html">แหล่งท่องเที่ยว</a></li>
+                    <li><a href="infor.html">คาเฟ่/ร้านอาหาร</a></li>
+                    <li><a href="in.html">แหล่งร้านฝากขาย</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Image Section -->
+    <div class="hero-image" id="hero"></div>
+
+    <!-- Search Box Section -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="ค้นหาจังหวัดหรือสถานที่...">
+        <button id="search-btn">ค้นหา</button>
+    </div>
+
+    <!-- Image Overlay Section -->
+    <div class="image-overlay">
+        <div class="frame">
+            <button class="arrow prev" onclick="changeImage(this.parentElement, '2.jpg')">❮</button>
+            <img src="1.jpg" alt="Temple">
+            <button class="arrow next" onclick="changeImage(this.parentElement, '3.jpg')">❯</button>
+        </div>
+        <div class="frame">
+            <button class="arrow prev" onclick="changeImage(this.parentElement, '5.jpg')">❮</button>
+            <img src="4.jpg" alt="Pagoda">
+            <button class="arrow next" onclick="changeImage(this.parentElement, '6.jpg')">❯</button>
+        </div>
+    </div>
+
+    <script>
+        // เปลี่ยนพื้นหลัง Hero Image อัตโนมัติ
+        const images = ['test1.png', 'test2.png', 'test3.png', 'test4.png', 'test5.png', 'test6.png', 'test7.png', 'test8.png'];
+        let currentIndex = 0;
+        const heroSection = document.getElementById('hero');
+
+        function changeBackground() {
+            heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        changeBackground();
+        setInterval(changeBackground, 5000);
+
+        // ฟังก์ชันเปลี่ยนภาพในกรอบรูป
+        function changeImage(frame, newImage) {
+            frame.querySelector("img").src = newImage;
+        }
+
+        // รายชื่อจังหวัด
+        const provinces = {
+            "พิษณุโลก": "phitsanulok.html",
+            "สุโขทัย": "sukhothai.html",
+            "กำแพงเพชร": "kamphaengphet.html",
+            "พิจิตร": "phichit.html",
+            "ตาก": "tak.html",
+            "นครสวรรค์": "nakhonsawan.html",
+            "อุตรดิตถ์ ": "ีttaradit.html",
+            "เพชรบูรณ์": "phetchabun.html"
+        };
+
+        function searchProvince() {
+            let searchValue = document.getElementById("search-input").value.trim();
+            if (provinces[searchValue]) {
+                window.location.href = provinces[searchValue];
+            } else {
+                alert("ไม่พบข้อมูลจังหวัดที่ค้นหา กรุณาลองใหม่");
+            }
+        }
+
+        document.getElementById("search-btn").addEventListener("click", searchProvince);
+        document.getElementById("search-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                searchProvince();
+            }
+        });
+
+    </script>
+
+</body>
+</html>

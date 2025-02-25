@@ -1,0 +1,195 @@
+/* แก้ไข body เพื่อใช้แค่ background-image หรือ background-color เท่านั้น */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0 url('4.jpg') no-repeat center center; /* ใช้ภาพพื้นหลัง */
+    background-size: cover; /* ปรับให้ภาพพื้นหลังครอบคลุม */
+}
+
+/* สไตล์สำหรับกรอบข้อความ */
+.message-box {
+    position: relative;
+    z-index: 10;
+    background-color: white;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+/* ส่วนของ header */
+header {
+    background-color: hsl(135, 33%, 21%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+/* สไตล์สำหรับพื้นที่เนื้อหา */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+.province-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.province-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.region {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(207, 107, 107, 0.2);
+    width: 48%;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region:hover {
+    transform: scale(1.05);
+}
+
+.region ul {
+    list-style: none;
+    padding: 0;
+    columns: 2;
+    column-gap: 15px;
+    width: 100%;
+}
+
+.region ul li {
+    margin: 5px 0;
+    break-inside: avoid;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.region ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.region ul li a:hover {
+    color: #fff8f8;
+}
+
+footer {
+    background-color: #fcfdff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* กรอบลูกศร */
+.arrow {
+    width: 15px;
+    height: 15px;
+    font-size: 8px;
+    line-height: 15px;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+/* ปรับปรุง hero image */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: url('1.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideBackground 15s linear infinite;
+}
+
+
+
+
+/* Text Box */
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 20px;
+    max-width: 300px;
+    border-radius: 9px;
+    box-shadow: 3px 3px 10px rgba(70, 70, 70, 0.5);
+}
+
+.text-box h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.text-box p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.text-box a {
+    display: inline-block;
+    color: #e7d3c0;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.text-box a:hover {
+    text-decoration: underline;
+}
+
+.hero-text {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    background: rgba(246, 243, 243, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    width: 350px;
+    border: 2px solid #b6b6b6;
+}
+
+
